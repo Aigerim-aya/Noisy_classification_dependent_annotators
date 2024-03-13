@@ -1,7 +1,8 @@
 # Noisy_classification_dependent_annotators
 Noisy Classification for MNIST dependent annotators
+
 # Data Simulator (Morphological Transformations)
+We generate synthetic annotations from original MNIST dataset, for which there is known GT labels which we do not use for training. We simulate 3 annotations, namely good-segmentation (which is similar to original images), thin, and thick using [Morpho-MNIST software](https://github.com/dccastro/Morpho-MNIST). The original MNIST dataset and its annotations can be found [here](https://drive.google.com/file/d/19e2KVY0A-44fnsGUu--3I1n8vXtInvJw/view?usp=drive_link). 
 
-We generate synthetic annotations from an assumed GT on MNIST, MS lesion and BraTS datasets, to generate efficacy of the approach in an idealised situation where the GT is known. We simulate a group of 5 annotators of disparate characteristics by performing morphological transformations (e.g., thinning, thickening, fractures, etc) on the ground-truth (GT) segmentation labels, using [Morpho-MNIST software](https://github.com/dccastro/Morpho-MNIST). In particular, the first annotator provides faithful segmentation (“good-segmentation”) with approximate GT, the second tends over-segment (“over-segmentation”), the third tends to under-segment (“under-segmentation”), the fourth is prone to the combination of small fractures and over-segmentation (“wrong-segmentation”) and the fifth always annotates everything as the background (“blank-segmentation”). To create synthetic noisy labels in multi-class scenario, we first choose a target class and then apply morphological operations on the provided GT mask to create 4 synthetic noisy labels at different patterns, namely, over-segmentation, under-segmentation, wrong segmentation and good segmentation. We create training data by deriving labels from the simulated annotators. Here we provide several example images in `data_simulation`.
-
-[MNIST dataset and annotators](https://drive.google.com/file/d/19e2KVY0A-44fnsGUu--3I1n8vXtInvJw/view?usp=drive_link)
+DataPreparation_MNIST.ipynb is used to create noisy labels 
+![alt text](https://github.com/[Aigerim-aya]/[Noisy_classification_dependent_annotators]/annotators_noisy.png?raw=true)
